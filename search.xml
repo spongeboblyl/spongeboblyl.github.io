@@ -3,16 +3,16 @@
   
     
     <entry>
-      <title><![CDATA[测试文章]]></title>
-      <url>%2F2016%2F11%2F05%2F%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0%2F</url>
-      <content type="text"><![CDATA[最近，有这么一条消息吸引了小艺的注意，那就是李敏镐、李钟硕、李准基、池昌旭、朴海镇以及EXO成员KAI、2PM成员玉泽演将携手出演一部网剧，该剧由乐天免税店投资并制作，名为《六次初吻》。 这个阵容一经公布，就惊呆了一众小伙伴。这六位不管哪一位都是拥有无数迷妹的男神啊，他们竟然要出演同一部剧了？？？！！！ 大标题啦啦啦Create a new post1$ hexo new "My New Post" More info: Writing 端口查看1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <title><![CDATA[如何用hexo+Github pages建立博客]]></title>
+      <url>%2F2016%2F11%2F03%2F%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%2F</url>
+      <content type="text"></content>
     </entry>
 
     
     <entry>
-      <title><![CDATA[巴拉巴拉]]></title>
-      <url>%2F2016%2F11%2F04%2Fhello-world%2F</url>
-      <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. 快速开始Create a new post1$ hexo new "My New Post" More info: Writing 端口查看1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <title><![CDATA[Markdown--基本介绍]]></title>
+      <url>%2F2016%2F11%2F02%2FMarkdown%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%2F</url>
+      <content type="text"><![CDATA[首先呢，在建立个人博客之前，我是没有使用过markdown的，也只是听说过他很简单,大概只有十个标记吧，现在呢写博客需要用它，所以我就边学边写一些关于markdown的笔记吧(当然这里只写一些常用的啦..够日常写文章就行了 T.T)，以免以后忘记又得去查文档（简直被我的机智给帅哭了 ^.^） 标题标题是每篇文章都需要也是最常用的格式，在 Markdown 中，如果一段文字被定义为标题，只要在这段文字前加 # 号即可 (注意#号与标题之间的空格) 123# 一号标题## 二号标题### 三号标题 其效果图如下图所示 图片与链接12![名称](图片地址) --引用图片[加链接的关键字](链接地址) --加链接 其效果图如下图所示 粗体与斜体用两个号将文本包裹起来就是粗体文字了，用一个号包裹就是斜体文字 12**粗体***斜体* 效果展示：粗体斜体 列表(就是ul、li啦~)12-文本 --无序列表1.文本 --有序列表 效果图： 引用如果你需要引用一小段别处的句子，那么就要用引用的格式。只需要在文本前加入 &gt; 尖括号即可。 1&gt;文本 效果图： 代码框代码框效果就是图片中展示代码的黑框了…可以用`符号将代码包含即可。 1`代码部分` 分割线分割线只需要用3个*号就行了。 表格表格貌似是最麻烦的了… 12345| Tables | Are | Cool || ------------- |:-------------:| -----:|| col 3 is | right-aligned | $1600 || col 2 is | centered | $12 || zebra stripes | are neat | $1 | 效果就是下面的表格了： Tables Are Cool col 3 is right-aligned $1600 col 2 is centered $12 zebra stripes are neat $1]]></content>
     </entry>
 
     
