@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+    
+    <entry>
+      <title><![CDATA[测试文章]]></title>
+      <url>%2F2016%2F11%2F05%2F%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0%2F</url>
+      <content type="text"><![CDATA[最近，有这么一条消息吸引了小艺的注意，那就是李敏镐、李钟硕、李准基、池昌旭、朴海镇以及EXO成员KAI、2PM成员玉泽演将携手出演一部网剧，该剧由乐天免税店投资并制作，名为《六次初吻》。 这个阵容一经公布，就惊呆了一众小伙伴。这六位不管哪一位都是拥有无数迷妹的男神啊，他们竟然要出演同一部剧了？？？！！！ 大标题啦啦啦Create a new post1$ hexo new "My New Post" More info: Writing 端口查看1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[巴拉巴拉]]></title>
+      <url>%2F2016%2F11%2F04%2Fhello-world%2F</url>
+      <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. 快速开始Create a new post1$ hexo new "My New Post" More info: Writing 端口查看1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    </entry>
+
+    
+  
+  
+</search>
