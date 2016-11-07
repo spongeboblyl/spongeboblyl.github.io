@@ -102,16 +102,16 @@
 
 
 
-<meta name="description" content="前端开发/北京林业大学/学生">
+<meta name="description" content="说起搭建博客这个事啊~其实走的弯路还真不少…(为了有个像样的博客也是拼了…)之前因为身边没有同学自己搭建博客，他们对于搭建博客也是没有什么兴趣，所以只能在网上扒扒教程了 T.T 最开始的时候呢看了看基本上都是选择Jekyll+Github Pages来搭建的，所以我也选择了Jekyll入坑ing..)因为Jekyll是基于Ruby语言(之前没有接触过Ruby,表示一脸懵逼)写的，所以开始搭建Rub">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何用hexo+Github pages建立博客">
 <meta property="og:url" content="http://spongeboblyl.github.io/2016/11/03/如何建立博客/index.html">
 <meta property="og:site_name" content="Spongebob's Blog">
-<meta property="og:description" content="前端开发/北京林业大学/学生">
-<meta property="og:updated_time" content="2016-11-06T09:53:11.443Z">
+<meta property="og:description" content="说起搭建博客这个事啊~其实走的弯路还真不少…(为了有个像样的博客也是拼了…)之前因为身边没有同学自己搭建博客，他们对于搭建博客也是没有什么兴趣，所以只能在网上扒扒教程了 T.T 最开始的时候呢看了看基本上都是选择Jekyll+Github Pages来搭建的，所以我也选择了Jekyll入坑ing..)因为Jekyll是基于Ruby语言(之前没有接触过Ruby,表示一脸懵逼)写的，所以开始搭建Rub">
+<meta property="og:updated_time" content="2016-11-07T06:38:55.832Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何用hexo+Github pages建立博客">
-<meta name="twitter:description" content="前端开发/北京林业大学/学生">
+<meta name="twitter:description" content="说起搭建博客这个事啊~其实走的弯路还真不少…(为了有个像样的博客也是拼了…)之前因为身边没有同学自己搭建博客，他们对于搭建博客也是没有什么兴趣，所以只能在网上扒扒教程了 T.T 最开始的时候呢看了看基本上都是选择Jekyll+Github Pages来搭建的，所以我也选择了Jekyll入坑ing..)因为Jekyll是基于Ruby语言(之前没有接触过Ruby,表示一脸懵逼)写的，所以开始搭建Rub">
 
 
 
@@ -383,7 +383,25 @@
       
 
       
-        
+        <p>说起搭建博客这个事啊~其实走的弯路还真不少…(为了有个像样的博客也是拼了…)<br>之前因为身边没有同学自己搭建博客，他们对于搭建博客也是没有什么兴趣，所以只能在网上扒扒教程了 T.T 最开始的时候呢看了看基本上都是选择<a href="http://jekyll.com.cn/" target="_blank" rel="external">Jekyll</a>+<a href="https://pages.github.com/" target="_blank" rel="external">Github Pages</a>来搭建的，所以我也选择了Jekyll入坑ing..)因为Jekyll是基于<a href="https://www.ruby-lang.org/en/" target="_blank" rel="external">Ruby</a>语言(之前没有接触过Ruby,表示一脸懵逼)写的，所以开始搭建Ruby环境什么的，然后继续下去，到了最后搭建好了发现主题好难看(完美主义者表示受不了)然后想改改主题，又是一通折腾…总之别再跟我提这破玩意了！赶紧go die 吧！继续创作的心情都没有了，还好在论坛上有人给了我个建议用hexo多好，又是基于node.js的，简直贴地气啊，一个命令就能更新到Github仓库很方便有木有<em>.</em></p>
+<p></p><p>一不小心又扯多了…言归正传吧，下面就说说如何用hexo+Github pages轻松建立博客，避免走弯路</p>
+<a id="more"></a>
+<h2 id="为什么要建立博客"><a href="#为什么要建立博客" class="headerlink" title="为什么要建立博客"></a>为什么要建立博客</h2><h3 id="为什么选择hexo和Github-Pages"><a href="#为什么选择hexo和Github-Pages" class="headerlink" title="为什么选择hexo和Github Pages"></a>为什么选择hexo和Github Pages</h3><ul>
+<li>域名是github的二级域名，完全免费(高富帅请忽略)</li>
+<li>hexo可以一键上传，及时查看效果，方便快捷</li>
+<li>再次吐槽下Jekyll..</li>
+</ul>
+<h3 id="为什么要写博客"><a href="#为什么要写博客" class="headerlink" title="为什么要写博客"></a>为什么要写博客</h3><ul>
+<li>本人表达能力不佳，记忆力不好，写下来能让我印象更深刻，提高我的写作思维能力</li>
+<li>避免捡了芝麻丢了西瓜的尴尬</li>
+<li>与他人分享交流，互相学习</li>
+</ul>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
+<li>注册<a href="https://github.com/" target="_blank" rel="external">Github</a></li>
+<li>安装<a href="https://git-scm.com/" target="_blank" rel="external">git</a></li>
+<li>安装<a href="https://nodejs.org/en/" target="_blank" rel="external">node.js</a></li>
+</ul>
+
       
     </div>
 
@@ -577,7 +595,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要建立博客"><span class="nav-number">1.</span> <span class="nav-text">为什么要建立博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么选择hexo和Github-Pages"><span class="nav-number">1.1.</span> <span class="nav-text">为什么选择hexo和Github Pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要写博客"><span class="nav-number">1.2.</span> <span class="nav-text">为什么要写博客</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li></ol></div>
             
           </div>
         </section>
