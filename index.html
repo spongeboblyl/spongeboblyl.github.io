@@ -388,74 +388,16 @@
 
       
         
-          
-            <h2 id="一、什么是Ajax？"><a href="#一、什么是Ajax？" class="headerlink" title="一、什么是Ajax？"></a>一、什么是Ajax？</h2><ul>
+          <h2 id="一、什么是Ajax？"><a href="#一、什么是Ajax？" class="headerlink" title="一、什么是Ajax？"></a>一、什么是Ajax？</h2><ul>
 <li>Asynchronous Javascript And XML （异步的JavaScript和XML）</li>
 <li>AJAX是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新</li>
 <li>Ajax只能从服务器端读取数据</li>
 </ul>
-<h2 id="二、Ajax原理"><a href="#二、Ajax原理" class="headerlink" title="二、Ajax原理"></a>二、Ajax原理</h2><h3 id="HTTP请求方法"><a href="#HTTP请求方法" class="headerlink" title="HTTP请求方法"></a>HTTP请求方法</h3><ul>
-<li>GET —- 用于获取数据：把数据放在URL上提交（特点：容量低、便于分享、不安全）</li>
-<li>POST —- 用于上传数据：把数据放在 http content (特点：安全性一般、容量大)</li>
-</ul>
-<h2 id="三、编写Ajax"><a href="#三、编写Ajax" class="headerlink" title="三、编写Ajax"></a>三、编写Ajax</h2><h3 id="1-创建Ajax对象"><a href="#1-创建Ajax对象" class="headerlink" title="1.创建Ajax对象"></a>1.创建Ajax对象</h3><p>Ajax的核心是XMLHttpRequest对象，它是Ajax实现的关键，发送异步请求、接受响应以及执行回调都是通过它来完成</p>
-<p>所有现代浏览器（IE7+、Firefox、Chrome、Safari 以及 Opera）均内建 XMLHttpRequest 对象。</p>
-<ul>
-<li><p>创建 XMLHttpRequest对象的语法：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var oAjax= new XMLHttpRequest();</div></pre></td></tr></table></figure>
-</li>
-<li><p>老版本的 Internet Explorer（IE5 和 IE6）使用ActiveX 对象：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var oAjax= new ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>为了应对所有的现代浏览器，包括 IE5和IE6，请检查浏览器是否支持MLHttpRequest对象。如果支持，则创建XMLHttpRequest对象。如果不支持，则创建ActiveXObject：</p>
-<ul>
-<li>兼容写法：<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var oAjax = null;</div><div class="line"><span class="keyword">if</span>(window.XMLHttpRequest) &#123;</div><div class="line">	oAjax = new XMLHttpRequest();</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">	oAjax = new ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="2-连接服务器"><a href="#2-连接服务器" class="headerlink" title="2.连接服务器"></a>2.连接服务器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">oAjax.open(<span class="string">'GET'</span>,<span class="string">'URL'</span>,是否异步);</div></pre></td></tr></table></figure>
-<h3 id="3-发送请求"><a href="#3-发送请求" class="headerlink" title="3.发送请求"></a>3.发送请求</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">oAjax.send();</div></pre></td></tr></table></figure>
-<p>一般情况下，使用Ajax提交的参数多是些简单的字符串，可以直接使用GET方法将要提交的参数写到open方法的url参数中，此时send方法的参数为null或为空。</p>
-<h3 id="4-接收返回"><a href="#4-接收返回" class="headerlink" title="4.接收返回"></a>4.接收返回</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">oAjax.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">	<span class="keyword">if</span>(oAjax.readyAtate == 4) &#123;</div><div class="line">		<span class="keyword">if</span>(oAjax.status  == 200) &#123;</div><div class="line">			fnSucc(oAjax.responseText);</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			<span class="keyword">if</span>(fnFaild) &#123;</div><div class="line">				fnFaild();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<ul>
-<li><p>onreadystatechange ：当处理过程发生变化的时候执行下面的函数</p>
-</li>
-<li><p>readyState ：ajax处理过程:</p>
-<ul>
-<li>0：请求未初始化（还没有调用 open()）。</li>
-<li>1：请求已经建立，但是还没有发送（还没有调用 send()）。</li>
-<li>2：请求已发送，正在处理中（通常现在可以从响应中获取内容头）。</li>
-<li>3：请求在处理中；通常响应中已有部分数据可用了，但是服务器还没有完成响应的生成。</li>
-<li>4：响应已完成；您可以获取并使用服务器的响应了。</li>
-</ul>
-</li>
-<li><p>status属性：</p>
-<ul>
-<li>200:”OK”</li>
-<li>404: 未找到页面</li>
-</ul>
-</li>
-<li><p>responseText：获得字符串形式的响应数据</p>
-</li>
-<li><p>responseXML：获得 XML形式的响应数据</p>
-</li>
-<li><p>对象转换为JSON格式使用JSON.stringify</p>
-</li>
-<li><p>json转换为对象格式用JSON.parse()</p>
-</li>
-<li><p>返回值一般为json字符串，可以用JSON.parse(oAjax.responseText)转化为JSON对象</p>
-</li>
-<li><p><strong>从服务器传回的数据是json格式，这里做一个例子说明，如何利用</strong><br>1、首先需要从XMLHttpRequest对象取回数据这是一个JSON串，把它转换为真正的JavaScript对象。使用JSON.parse(oAjax.responseText)转化为JSON对象<br>2、遍历得到的数组，向DOM中添加新元素</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> example(responseText)&#123;</div><div class="line"></div><div class="line">var saleDiv= document.getElementById(<span class="string">"sales"</span>);</div><div class="line">var sales = JSON.parse(responseText);</div><div class="line">    <span class="keyword">for</span>(var i=0;i&lt;sales.length;i++)&#123;</div><div class="line">        var sale = sales[i];</div><div class="line">         var div = document.createElement(<span class="string">"div"</span>);</div><div class="line">         div.setAttribute(<span class="string">"class"</span>,<span class="string">"salseItem"</span>);</div><div class="line">        div.innerHTML = sale.name + sale.sales;</div><div class="line">        salseDiv.appendChild(div);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="/img/ajax.png" alt="ajax图解"></p>
-<h3 id="5-完整例子"><a href="#5-完整例子" class="headerlink" title="5.完整例子"></a>5.完整例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">function</span> ajax(url,fnSucc,fnFaild) &#123;</div><div class="line">	//创建ajax对象</div><div class="line">	var oAjax = null;</div><div class="line">	<span class="keyword">if</span>(window.XMLHttpRequest) &#123;</div><div class="line">		oAjax = new XMLHttpRequest();</div><div class="line">	&#125; <span class="keyword">else</span> &#123;</div><div class="line">		oAjax = new ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	//连接服务器</div><div class="line">	oAjax.open(<span class="string">'GET'</span>,URL,<span class="literal">true</span>);</div><div class="line">	</div><div class="line">	//发送请求</div><div class="line">	oAjax.send();</div><div class="line">	</div><div class="line">	//接收返回</div><div class="line">	oAjax.onreadystatechange = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">		<span class="keyword">if</span>(oAjax.readyAtate == 4) &#123;</div><div class="line">			<span class="keyword">if</span>(oAjax.status  == 200) &#123;</div><div class="line">				fnSucc(oAjax.responseText);</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				<span class="keyword">if</span>(fnFaild) &#123;</div><div class="line">					fnFaild();</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="jQuery中的ajax"><a href="#jQuery中的ajax" class="headerlink" title="jQuery中的ajax"></a>jQuery中的ajax</h2><ul>
-<li>jquery中ajax封装案例<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">//ajax请求后台数据</div><div class="line">var btn =  document.getElementsByTagName(<span class="string">"input"</span>)[0];</div><div class="line">btn.onclick = <span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">	</div><div class="line">	ajax(&#123;//json格式</div><div class="line">		<span class="built_in">type</span>:<span class="string">"post"</span>,</div><div class="line">		url:<span class="string">"post.php"</span>,</div><div class="line">		data:<span class="string">"username=poetries&amp;pwd=123456"</span>,</div><div class="line">		asyn:<span class="literal">true</span>,</div><div class="line">		success:<span class="keyword">function</span>(data)&#123;</div><div class="line">			document.write(data);</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">&#125;</div><div class="line">//封装ajax</div><div class="line"><span class="keyword">function</span> ajax(aJson)&#123;</div><div class="line">	var ajx = null;</div><div class="line">	var <span class="built_in">type</span> = aJson.type || <span class="string">"get"</span>;</div><div class="line">	var asyn = aJson.asyn || <span class="literal">true</span>;</div><div class="line">	var url = aJson.url;		// url 接收 传输位置</div><div class="line">	var success = aJson.success;// success 接收 传输完成后的回调函数</div><div class="line">	var data = aJson.data || <span class="string">''</span>;// data 接收需要附带传输的数据</div><div class="line">	</div><div class="line">	<span class="keyword">if</span>(window.XMLHttpRequest)&#123;//兼容处理</div><div class="line">		ajx = new XMLHttpRequest();//一般浏览器</div><div class="line">	&#125;<span class="keyword">else</span></div><div class="line">	&#123;</div><div class="line">		ajx = new ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);//IE6+</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (<span class="built_in">type</span> == <span class="string">"get"</span> &amp;&amp; data)</div><div class="line">	&#123;</div><div class="line">		url +=<span class="string">"/?"</span>+data+<span class="string">"&amp;"</span>+Math.random();</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	//初始化ajax请求</div><div class="line">	ajx.open( <span class="built_in">type</span> , url , asyn );</div><div class="line">	//规定传输数据的格式</div><div class="line">	ajx.setRequestHeader(<span class="string">'content-type'</span>,<span class="string">'application/x-www-form-urlencoded'</span>);</div><div class="line">	//发送ajax请求（包括post数据的传输）</div><div class="line">	<span class="built_in">type</span> == <span class="string">"get"</span> ?ajx.send():ajx.send(aJson.data);</div><div class="line">	</div><div class="line">	//处理请求</div><div class="line">	ajx.onreadystatechange = <span class="keyword">function</span>(aJson)&#123;</div><div class="line">		</div><div class="line">	<span class="keyword">if</span>(ajx.readState == 4)&#123;</div><div class="line">			</div><div class="line">		<span class="keyword">if</span> (ajx.status == 200 &amp;&amp; ajx.status&lt;300)//200是HTTP 请求成功的状态码</div><div class="line">		&#123;</div><div class="line">			//请求成功处理数据</div><div class="line">			success &amp;&amp; success(ajx.responseText);</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			alert(<span class="string">"请求出错"</span>+ajx.status);</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">		</div><div class="line">	&#125;</div></pre></td></tr></table></figure></li>
-</ul>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/28/Ajax笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
